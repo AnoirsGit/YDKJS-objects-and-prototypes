@@ -1,6 +1,5 @@
 # Chapter 4  
 ### Terms  
-  - ***CALL SITE*** - The location where function is called
 
 ## "Class"
 
@@ -8,7 +7,7 @@
 >  OO or class-oriented programming stresses that data intrinsically has associated behavior that operates on it, so proper designing to package up the data and behavior together.
 
 
-> * **nheritance** is the mechanism of basing an object or class upon another object (prototype-based inheritance) or class (class-based inheritance), retaining similar implementation.
+> * **nheritance** is the mechanism of basing an obj or class upon another obj (prototype-based inheritance) or class (class-based inheritance), retaining similar implementation.
 
 
 > * **polymorphism** describes the idea that a genearal behavior from aparent class can be overridden in a chikls class to give it more specifics
@@ -21,8 +20,8 @@
 
 > **Building**   
 > The traditional memtaphor for "class" - and "instance" besed thinking comes from building construction
-> * A class is a blueprint. To actually get an object we can interact with we must build ( aka instantiate ) something from the class. The end result of such ( construction ) is an object, typically called an **instance**. which we can directly call methods on and access any public data properties from, as necessary
-> * The object is a copy of all the characteristics described by the class  
+> * A class is a blueprint. To actually get an obj we can interact with we must build ( aka instantiate ) something from the class. The end result of such ( construction ) is an obj, typically called an **instance**. which we can directly call methods on and access any public data properties from, as necessary
+> * The obj is a copy of all the characteristics described by the class  
 
 
 > **Mixins**
@@ -108,4 +107,4 @@
 >Another.greeting; //hi world
 >Another.count; //1 (not shared state with SOmething)
 > ```
->The end result is theat the assignment that `Something.cool()` makes are applied against the `Another` objext rather than the `Something` object
+>The end result is theat the assignment that `Something.cool()` makes are applied against the `Another` objext rather than the `Something` obj
