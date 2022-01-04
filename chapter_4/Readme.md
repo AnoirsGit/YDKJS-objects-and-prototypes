@@ -1,9 +1,9 @@
 # Chapter 4  
 ### Terms  
 
-## "Class"
+## Class
 
-> **Class Theory**  
+> ### **Class Theory**  
 >  OO or class-oriented programming stresses that data intrinsically has associated behavior that operates on it, so proper designing to package up the data and behavior together.
 
 

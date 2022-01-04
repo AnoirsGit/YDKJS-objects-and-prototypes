@@ -2,9 +2,9 @@
 ### Terms  
   - ****** - 
 
-## "Prototypes"
+## Prototypes
 
-> **Prototype**  
+> ### **Prototype**  
 >  Objects in JS have an internal property, denoted in the specification as ***Prototype***, which is simpley a ref to another obj. Almost all objs are given a non-null value for this property, at the time of creation
 > * The default [Get] operation proceeds to follow the ***Prototype*** link of the obj if it cannot find the request property ob the objext directly:
 >``` Javascript

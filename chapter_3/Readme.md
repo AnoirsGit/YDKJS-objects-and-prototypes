@@ -3,7 +3,7 @@
   - ***SIMPLE PREMITIVES*** - is a premitive types (`string, boolean, number, `)
 
 ## Object
-> **Syntax**  
+> ### **Syntax**  
 >  * ***Literal:*** `let obj = { key: value, ... }`  
 >  * ***Constructed:*** `let obj = new Object(); `   
 >  ` obj.key = value;`
