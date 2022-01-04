@@ -86,11 +86,32 @@
 >a1.constructor === Foo //false
 >a1.constructor === Object //true
 >```
->a1 has no`constructor` property, soit delegates up the [[Prototype]] chain to `Foo.prototype`. But that obj doesn't have a `constructor` either . so it keeps delegating chain, this time up to `Object.prototype`. the top of the delegation chain.  That obj indeed has a `constructor` on it, which points to the built-in Obj function
+>a1 has no`constructor` property, soit delegates up the `[[Prototype]]` chain to `Foo.prototype`. But that obj doesn't have a `constructor` either . so it keeps delegating chain, this time up to `Object.prototype`. the top of the delegation chain.  That obj indeed has a `constructor` on it, which points to the built-in Obj function
 
 
-> **(Prototypal) Inheritance**   
+> **(Prototypal) Inheritance** 
+> The property `[[Prototype]]` is internal and hidden, but there are many ways to set it. One of them is to use the special name `__proto__`, like this:
 >[Prototypal inheritance](https://javascript.info/prototype-inheritance)
+>``` Javascript
+>let animal = {
+>  eats: true
+>};
+>let rabbit = {
+>  jumps: true
+>};
+>rabbit.`__proto__` = animal; // sets rabbit.`[[Prototype]]` = animal
+>alert( rabbit.eats ); // true (**)
+>alert( rabbit.jumps ); // true
+>```
+>>`__proto__` is a historical ***getter/setter*** for `[[Prototype]]`
+>>It’s a common mistake of novice developers not to know the difference between these two.
+>>
+>>Please note that `__proto__` is not the same as the internal `[[Prototype]]` property. It’s a getter/setter for `[[Prototype]]`.
+>>The `__proto__` property is a bit outdated. It exists for historical reasons, modern JavaScript suggests that we should use Object.getPrototypeOf/Object.setPrototypeOf functions instead that get/set the prototype
+>>
+>>By the specification, `__proto__` must only be supported by browsers. In fact though, all environments including server-side support `__proto__`, so we’re quite safe using it.
+>>
+>>As the `__proto__` notation is a bit more intuitively obvious, we use it in the examples.
 >``` Javascript
 >function Foo(name){ 
 >    this.name = name 
@@ -134,6 +155,8 @@
 >Bar.prototype = Object.create( Foo.prototype );
 >``` 
 >throws away existing default Bar.prototype and cause garbage collector performance issues( it  throws away an obj thats later garbage collected )
+>
+
 
 > **Inspecting "Class" Relationships**   
 > ``` Javascript
@@ -146,12 +169,12 @@
 >a instanceof Foo;// true
 >```
 >
-> * `a instanceof Foo` answers: in the entire [[Prototype]] chain, does the object arbitrarly pointed to by Foo.prototype ever appear?
+> * `a instanceof Foo` answers: in the entire `[[Prototype]]` chain, does the object arbitrarly pointed to by Foo.prototype ever appear?
 > * u can only inquire about the "ancestory" of some obj (a) if you have some func to test with
 > 
-> * `Foo.protoype.isPrototypeOf( a )` answers: in the entire [[Prototype]] chain of a, does *Foo.protoype* ever appear?
+> * `Foo.protoype.isPrototypeOf( a )` answers: in the entire `[[Prototype]]` chain of a, does *Foo.protoype* ever appear?
 > 
-> * The strange `_proto_` property retrieves the internal [[Prototype]] of an object as a refeernce
+> * The strange `_proto_` property retrieves the internal `[[Prototype]]` of an object as a refeernce
 > * `_proto_` looks like property, but it's actully more appropriate to think of it is a *getter/setter*
 
 
@@ -166,7 +189,7 @@
 >
 >var.something(); // kavo
 >```
-> `Object.create` creates a new obj linked to the objext we specified, which gives us all the pewer(delegation) of the [[Prototype]] mechanism 
+> `Object.create` creates a new obj linked to the objext we specified, which gives us all the pewer(delegation) of the `[[Prototype]]` mechanism 
 >   * we dont need classes to create meaningfull relationship between two objs
 
 
